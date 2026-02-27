@@ -1,11 +1,12 @@
-// src/layouts/AdminLayout.tsx
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useAuthStore } from '@store/auth.store';
 
 const { Sider, Content } = Layout;
 
 export default function AdminLayout() {
   const navigate = useNavigate();
+  const { user, logout } = useAuthStore();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -39,7 +40,28 @@ export default function AdminLayout() {
       </Sider>
 
       <Layout>
-        <Content style={{ padding: 24 }}>
+        <div
+          style={{
+            padding: '16px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          {user && (
+            <Button
+              type="primary"
+              danger
+              onClick={async () => {
+                await logout();
+                navigate('/admin/login', { replace: true });
+              }}
+            >
+              Logout
+            </Button>
+          )}
+        </div>
+
+        <Content style={{ padding: '24px' }}>
           <Outlet />
         </Content>
       </Layout>

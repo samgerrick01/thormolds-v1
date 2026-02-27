@@ -1,7 +1,6 @@
-import { Layout, Menu, Badge } from 'antd';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Layout, Menu, Badge, Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useCartStore } from '@store/cart.store';
 import { useAuthStore } from '@store/auth.store';
 
@@ -10,19 +9,17 @@ const { Header, Content, Footer } = Layout;
 export default function MainLayout() {
   const navigate = useNavigate();
   const cartItems = useCartStore((s) => s.items);
-  const user = useAuthStore((s) => s.user);
+  const { user, logout } = useAuthStore();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      {/* HEADER */}
       <Header
         style={{
           display: 'flex',
-          alignItems: 'center',
           justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
-        {/* LOGO */}
         <div
           style={{
             color: '#fff',
@@ -35,13 +32,12 @@ export default function MainLayout() {
           Thormolds
         </div>
 
-        {/* NAV */}
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          selectable={false}
-          items={
-            [
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            selectable={false}
+            items={[
               {
                 key: 'home',
                 label: 'Home',
@@ -56,38 +52,29 @@ export default function MainLayout() {
                 ),
                 onClick: () => navigate('/cart'),
               },
-              user?.role === 'admin'
-                ? {
-                    key: 'admin',
-                    label: 'Admin',
-                    onClick: () => navigate('/admin'),
-                  }
-                : null,
-              user
-                ? {
-                    key: 'logout',
-                    label: 'Logout',
-                    onClick: () => {
-                      // optional: call supabase.auth.signOut()
-                      navigate('/login');
-                    },
-                  }
-                : {
-                    key: 'login',
-                    label: 'Login',
-                    onClick: () => navigate('/login'),
-                  },
-            ].filter(Boolean) as any
-          }
-        />
+            ]}
+          />
+
+          {user && (
+            <Button
+              type="primary"
+              danger
+              onClick={async () => {
+                await logout();
+                navigate('/login', { replace: true });
+              }}
+            >
+              Logout
+            </Button>
+          )}
+        </div>
       </Header>
 
-      {/* PAGE CONTENT */}
       <Content style={{ padding: '24px', background: '#fff' }}>
+        {/* This will render the current route content */}
         <Outlet />
       </Content>
 
-      {/* FOOTER */}
       <Footer style={{ textAlign: 'center' }}>
         © {new Date().getFullYear()} Thormolds. All rights reserved.
       </Footer>

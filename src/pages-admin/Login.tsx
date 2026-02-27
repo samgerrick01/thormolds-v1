@@ -1,40 +1,60 @@
-import { Button, Form, Input, message } from 'antd';
+import { Form, Input, Button, Typography, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { signIn } from '@auth/api';
+import { adminSignIn } from '@features/auth/api';
 import { useAuthStore } from '@store/auth.store';
+import { useState } from 'react';
+
+const { Title } = Typography;
 
 export default function AdminLogin() {
   const navigate = useNavigate();
   const setUser = useAuthStore((s) => s.setUser);
+  const [loading, setLoading] = useState(false); // <-- loading state
 
-  const onFinish = async (values: any) => {
+  const onFinish = async (values: { username: string; password: string }) => {
+    setLoading(true); // start loading
     try {
-      const user = await signIn(values.email, values.password);
-
-      if (user.role !== 'admin') {
-        message.error('Unauthorized admin access');
-        return;
-      }
-
-      setUser(user);
-      navigate('/admin');
+      const admin = await adminSignIn(values.username, values.password);
+      setUser(admin);
+      message.success('Logged in successfully!');
+      navigate('/admin', { replace: true });
     } catch (err: any) {
-      message.error(err.message);
+      message.error(err.message || 'Login failed');
+    } finally {
+      setLoading(false); // stop loading
     }
   };
 
   return (
-    <Form onFinish={onFinish} layout="vertical">
-      <h2>Admin Login</h2>
-      <Form.Item name="email" rules={[{ required: true }]}>
-        <Input placeholder="Admin Email" />
-      </Form.Item>
-      <Form.Item name="password" rules={[{ required: true }]}>
-        <Input.Password placeholder="Password" />
-      </Form.Item>
-      <Button type="primary" danger htmlType="submit">
-        Login as Admin
-      </Button>
-    </Form>
+    <div style={{ maxWidth: 360, margin: '100px auto' }}>
+      <Title level={3}>Admin Login</Title>
+      <Form layout="vertical" onFinish={onFinish}>
+        <Form.Item
+          name="username"
+          label="Username"
+          rules={[{ required: true, message: 'Please enter your username' }]}
+        >
+          <Input placeholder="Username" />
+        </Form.Item>
+
+        <Form.Item
+          name="password"
+          label="Password"
+          rules={[{ required: true, message: 'Please enter your password' }]}
+        >
+          <Input.Password placeholder="Password" />
+        </Form.Item>
+
+        <Button
+          type="primary"
+          danger
+          block
+          htmlType="submit"
+          loading={loading} // <-- show spinner
+        >
+          Login as Admin
+        </Button>
+      </Form>
+    </div>
   );
 }

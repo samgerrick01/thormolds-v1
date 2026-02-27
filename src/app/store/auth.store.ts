@@ -1,7 +1,7 @@
-// src/app/store/auth.store.ts
 import { create } from 'zustand';
+import { supabase } from '@services/supabase';
 
-type AuthUser = {
+export type AuthUser = {
   id: string;
   email: string;
   role: 'admin' | 'user';
@@ -10,11 +10,14 @@ type AuthUser = {
 type AuthState = {
   user: AuthUser | null;
   setUser: (user: AuthUser) => void;
-  logout: () => void;
+  logout: () => Promise<void>;
 };
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   setUser: (user) => set({ user }),
-  logout: () => set({ user: null }),
+  logout: async () => {
+    await supabase.auth.signOut();
+    set({ user: null });
+  },
 }));
