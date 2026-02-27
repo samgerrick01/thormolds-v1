@@ -1,16 +1,14 @@
+// src/app/router/routes.tsx
 import { lazy } from 'react';
 
-/* =======================
-   PUBLIC PAGES
-======================= */
+/* PUBLIC */
 export const Home = lazy(() => import('@pages/Home'));
 export const Login = lazy(() => import('@pages/Login'));
 export const Cart = lazy(() => import('@pages/Cart'));
 export const ProductDetails = lazy(() => import('@pages/ProductDetails'));
 
-/* =======================
-   ADMIN PAGES
-======================= */
+/* ADMIN */
+export const AdminLogin = lazy(() => import('@admin-pages/Login'));
 export const AdminDashboard = lazy(() => import('@admin-pages/Dashboard'));
 export const AdminProducts = lazy(() => import('@admin-pages/Products'));
 export const AdminOrders = lazy(() => import('@admin-pages/Orders'));

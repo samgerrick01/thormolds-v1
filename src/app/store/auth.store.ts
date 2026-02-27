@@ -1,9 +1,15 @@
 // src/app/store/auth.store.ts
 import { create } from 'zustand';
 
+type AuthUser = {
+  id: string;
+  email: string;
+  role: 'admin' | 'user';
+};
+
 type AuthState = {
-  user: any | null;
-  setUser: (user: any) => void;
+  user: AuthUser | null;
+  setUser: (user: AuthUser) => void;
   logout: () => void;
 };
 
