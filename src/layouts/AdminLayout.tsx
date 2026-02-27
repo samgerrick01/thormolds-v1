@@ -1,3 +1,4 @@
+// src/layouts/AdminLayout.tsx
 import { Layout, Menu } from 'antd';
 import { Outlet, useNavigate } from 'react-router-dom';
 
@@ -13,20 +14,30 @@ export default function AdminLayout() {
           theme="dark"
           mode="inline"
           items={[
-            { key: '1', label: 'Dashboard', onClick: () => navigate('/admin') },
             {
-              key: '2',
+              key: 'dashboard',
+              label: 'Dashboard',
+              onClick: () => navigate('/admin'),
+            },
+            {
+              key: 'products',
               label: 'Products',
               onClick: () => navigate('/admin/products'),
             },
             {
-              key: '3',
+              key: 'orders',
               label: 'Orders',
               onClick: () => navigate('/admin/orders'),
+            },
+            {
+              key: 'users',
+              label: 'Users',
+              onClick: () => navigate('/admin/users'),
             },
           ]}
         />
       </Sider>
+
       <Layout>
         <Content style={{ padding: 24 }}>
           <Outlet />
