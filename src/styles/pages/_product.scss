@@ -1,0 +1,63 @@
+@use '../abstracts/index.scss' as *;
+
+.products-content {
+  padding: 4rem 2rem;
+  height: calc(100vh - $navbar-height - $footer-height);
+  display: flex;
+  flex-direction: column;
+
+  .products-title {
+    font-size: 30px;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+  }
+
+  .products-tabs {
+    flex: 1;
+    display: flex;
+
+    .ant-tabs-left {
+      display: flex;
+      height: 100%;
+
+      /* LEFT tab list */
+      .ant-tabs-nav {
+        max-height: 100%;
+        overflow-y: auto;
+      }
+
+      /* RIGHT content */
+      .ant-tabs-content-holder {
+        flex: 1;
+        overflow-y: auto;
+        padding-left: 2rem;
+      }
+    }
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1rem 0;
+
+    @include responsive(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Tab colors */
+  .ant-tabs-tab .ant-tabs-tab-btn {
+    color: $text-color-light;
+  }
+  .ant-tabs-tab:hover .ant-tabs-tab-btn {
+    color: $text-color-dark;
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: $blue-color;
+  }
+}

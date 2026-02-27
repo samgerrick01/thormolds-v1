@@ -1,0 +1,12 @@
+@use '../abstracts/index.scss' as *;
+
+.loading-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .ant-spin-dot-item {
+    background-color: $text-color-light;
+  }
+}

@@ -1,0 +1,30 @@
+@use '../abstracts/index.scss' as *;
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  text-align: center;
+  height: $footer-height;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  color: white;
+
+  p {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .footer-payment {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .footer-img {
+      height: 30px;
+    }
+  }
+}

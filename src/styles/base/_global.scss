@@ -1,0 +1,64 @@
+@use '../abstracts/index.scss' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-family:
+    'Playpen Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1; // take all remaining space
+  overflow-y: auto;
+  background-color: $background-color-dark;
+  color: $text-color-light;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.defaultLoading {
+  height: calc(100vh - $navbar-height - $footer-height);
+}
+
+/* Make all drawers dark */
+.ant-drawer {
+  .ant-drawer-content {
+    background-color: #1f1f1f !important; /* dark panel */
+    color: white !important; /* text color */
+  }
+
+  .ant-drawer-header {
+    border-bottom: none !important;
+    color: white !important;
+  }
+
+  .ant-drawer-body {
+    background-color: $background-color-dark !important;
+    padding: 0 !important;
+    color: white !important;
+  }
+}

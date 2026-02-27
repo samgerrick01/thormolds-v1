@@ -20,7 +20,34 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+
+      "@app/*": ["src/app/*"],
+      "@providers/*": ["src/app/providers/*"],
+      "@router/*": ["src/app/router/*"],
+      "@store/*": ["src/app/store/*"],
+
+      "@features/*": ["src/features/*"],
+      "@auth/*": ["src/features/auth/*"],
+      "@products/*": ["src/features/products/*"],
+      "@orders/*": ["src/features/orders/*"],
+
+      "@layouts/*": ["src/layouts/*"],
+
+      "@pages/*": ["src/pages/*"],
+      "@admin-pages/*": ["src/pages-admin/*"],
+
+      "@services/*": ["src/services/*"],
+
+      "@styles/*": ["src/styles/*"],
+
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": ["vite.config.ts"]
 }

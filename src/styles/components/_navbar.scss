@@ -1,0 +1,95 @@
+@use '../abstracts/index.scss' as *;
+
+.ant-drawer-body {
+  .drawer-links {
+    list-style: none;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  li {
+    a {
+      display: block;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 1rem;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1.2rem;
+      padding: 1rem 0;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: black;
+  color: white;
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    height: $navbar-height;
+  }
+
+  .logo {
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+
+      &.active {
+        border-bottom: 2px solid white;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    @media (max-width: 992px) {
+      display: none; // hide desktop links on mobile
+    }
+  }
+
+  .hamburger-btn {
+    display: none;
+
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+}

@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../../pages/Home';
-import Login from '../../pages/Login';
-import Cart from '../../pages/Cart';
-import AdminLayout from '../../layouts/AdminLayout';
-import MainLayout from '../../layouts/MainLayout';
-import AdminDashboard from '../../pages-admin/Dashboard';
-import AdminProducts from '../../pages-admin/Products';
+import AdminGuard from '@/components/AdminGuard';
+import AdminLayout from '@/layouts/AdminLayout';
+import MainLayout from '@/layouts/MainLayout';
+import Cart from '@/pages/Cart';
+import Home from '@/pages/Home';
+import Login from '@/pages/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function AppRouter() {
   return (
@@ -19,10 +18,14 @@ export default function AppRouter() {
         </Route>
 
         {/* Admin */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="products" element={<AdminProducts />} />
-        </Route>
+        <Route
+          path="/admin"
+          element={
+            <AdminGuard>
+              <AdminLayout />
+            </AdminGuard>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,43 @@
+@use '../abstracts/index.scss' as *;
+
+.contact-container {
+  min-height: calc(100vh - $navbar-height - $footer-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $background-color-dark;
+  padding: 24px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  background-color: $background-color-light;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.contact-subtitle {
+  display: block;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contact-form {
+  .ant-input,
+  .ant-select-selector,
+  .ant-input-textarea {
+    border-radius: 8px !important;
+  }
+
+  .ant-btn {
+    border-radius: 8px;
+    font-weight: 600;
+  }
+}

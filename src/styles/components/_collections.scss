@@ -1,0 +1,35 @@
+@use '../abstracts/index.scss' as *;
+
+.collections {
+  padding: 4rem 2rem;
+  background-color: $background-color-dark;
+  text-align: center;
+
+  .collections-title {
+    font-size: 2rem;
+
+    @include responsive(md) {
+      font-size: 1.6rem;
+    }
+
+    @include responsive(sm) {
+      font-size: 1.4rem;
+    }
+
+    margin-bottom: 2rem;
+  }
+
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @include responsive(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
