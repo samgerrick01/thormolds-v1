@@ -1,0 +1,15 @@
+.users-page {
+  .users-title {
+    margin-bottom: 16px;
+  }
+
+  .users-search {
+    width: 300px;
+  }
+
+  .users-search-container {
+    display: flex;
+    justify-content: flex-end; // aligns the search to the right
+    margin-bottom: 16px;
+  }
+}

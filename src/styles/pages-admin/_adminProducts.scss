@@ -1,0 +1,21 @@
+.products-page {
+  .products-header {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .products-title {
+    margin-bottom: 16px;
+  }
+
+  .products-search {
+    width: 200px;
+  }
+
+  .products-select {
+    width: 200px;
+  }
+}

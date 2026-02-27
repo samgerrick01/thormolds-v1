@@ -1,0 +1,98 @@
+{
+  "common": {
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "orders": "Orders",
+    "users": "Users",
+    "search": "Search",
+    "addProduct": "Add Product",
+    "selectCategory": "Select Category",
+    "searchProducts": "Search products",
+    "action": "Action",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password",
+    "resetPassword": "Reset Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Submit"
+  },
+  "dashboard": {
+    "welcome": "Welcome to the Dashboard",
+    "stats": "Statistics",
+    "recentOrders": "Recent Orders"
+  },
+  "products": {
+    "list": "Product List",
+    "name": "Name",
+    "price": "Price",
+    "category": "Category",
+    "actions": "Actions"
+  },
+  "orders": {
+    "products": "Products",
+    "unitPrice-Quantity": "Unit Price / Qty",
+    "actualPayment": "Actual Payment",
+    "buyer": "Buyer",
+    "payment": "Payment",
+    "delivery": "Delivery",
+    "status": "Status",
+    "action": "Actions",
+    "searchBuyer": "Search buyer or product",
+    "transactionStatus": "Transaction Status",
+    "pending": "Pending",
+    "paid": "Paid",
+    "shipped": "Shipped",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "users": {
+    "id": "ID",
+    "avatar": "User Avatar",
+    "username": "Username",
+    "balance": "User Balance",
+    "consumption": "Consumption Amount",
+    "membership": "Membership Level",
+    "active": "Active",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "actions": "Actions",
+    "placeholder": "Search by Email"
+  },
+  "forms": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Submit"
+  },
+
+  "tables": {
+    "id": "ID",
+    "name": "Name",
+    "stock": "Stock",
+    "price": "Price",
+    "category": "Category",
+    "sales": "Sales"
+  },
+  "messages": {
+    "welcome": "Welcome to the admin panel!",
+    "logoutSuccess": "You have been logged out successfully.",
+    "loginSuccess": "You have logged in successfully.",
+    "registerSuccess": "Your account has been created successfully."
+  },
+  "headersCount": {
+    "productList": "Product List",
+    "userList": "User List",
+    "orderList": "Order List",
+    "total": "Total",
+    "dataEntries": "data entries"
+  }
+}

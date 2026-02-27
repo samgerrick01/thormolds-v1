@@ -2,11 +2,14 @@ import { useAuthStore } from '@store/auth.store';
 import { Button, Layout, Menu } from 'antd';
 import { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { LanguageToggle } from '@/components/LanguageToggle';
 
 const { Sider, Content } = Layout;
 
 export default function AdminLayout() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { user, logout } = useAuthStore();
   const [collapsed, setCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -24,10 +27,10 @@ export default function AdminLayout() {
 
   // Menu items
   const menuItems = [
-    { key: 'dashboard', label: 'Dashboard', path: '/admin' },
-    { key: 'products', label: 'Products', path: '/admin/products' },
-    { key: 'orders', label: 'Orders', path: '/admin/orders' },
-    { key: 'users', label: 'Users', path: '/admin/users' },
+    { key: 'dashboard', label: t('common.dashboard'), path: '/admin' },
+    { key: 'products', label: t('common.products'), path: '/admin/products' },
+    { key: 'orders', label: t('common.orders'), path: '/admin/orders' },
+    { key: 'users', label: t('common.users'), path: '/admin/users' },
   ];
 
   const handleMenuClick = (path: string) => {
@@ -82,9 +85,10 @@ export default function AdminLayout() {
                   navigate('/admin/login', { replace: true });
                 }}
               >
-                Logout
+                {t('common.logout')}
               </Button>
             )}
+            <LanguageToggle />
           </div>
 
           <Content>

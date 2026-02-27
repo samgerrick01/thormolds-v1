@@ -28,3 +28,9 @@ export const deleteProduct = async (id: string) => {
   const { error } = await supabase.from('products').delete().eq('id', id);
   if (error) throw error;
 };
+
+export const getCategories = async () => {
+  const { data, error } = await supabase.from('category').select('*');
+  if (error) throw error;
+  return data;
+};

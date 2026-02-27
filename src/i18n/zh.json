@@ -1,0 +1,99 @@
+{
+  "common": {
+    "logout": "退出登录",
+    "dashboard": "仪表盘",
+    "products": "产品",
+    "orders": "订单",
+    "users": "用户",
+    "search": "搜索",
+    "addProduct": "新增产品",
+    "selectCategory": "选择分类",
+    "searchProducts": "搜索产品",
+    "action": "操作",
+    "edit": "编辑",
+    "delete": "删除"
+  },
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "email": "邮箱",
+    "password": "密码",
+    "forgotPassword": "忘记密码",
+    "resetPassword": "重置密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认密码",
+    "submit": "提交"
+  },
+  "dashboard": {
+    "welcome": "欢迎来到后台管理系统",
+    "stats": "统计",
+    "recentOrders": "最近订单"
+  },
+  "products": {
+    "list": "产品列表",
+    "name": "名称",
+    "price": "价格",
+    "stock": "库存",
+    "category": "分类",
+    "sales": "销量",
+    "actions": "操作"
+  },
+  "orders": {
+    "products": "产品",
+    "unitPriceQuantity": "单价 / 数量",
+    "actualPayment": "实际支付",
+    "buyer": "买家",
+    "payment": "支付",
+    "delivery": "配送",
+    "status": "状态",
+    "action": "操作",
+    "searchBuyer": "搜索买家或产品",
+    "transactionStatus": "交易状态",
+    "pending": "待支付",
+    "paid": "已支付",
+    "shipped": "已发货",
+    "completed": "已完成",
+    "cancelled": "已取消"
+  },
+  "users": {
+    "id": "ID",
+    "avatar": "用户头像",
+    "username": "用户名",
+    "balance": "用户余额",
+    "consumption": "消费金额",
+    "membership": "会员等级",
+    "active": "活跃",
+    "activate": "激活",
+    "deactivate": "禁用",
+    "actions": "操作",
+    "placeholder": "搜索邮箱"
+  },
+  "forms": {
+    "name": "名称",
+    "email": "邮箱",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "submit": "提交"
+  },
+  "tables": {
+    "id": "ID",
+    "name": "名称",
+    "stock": "库存",
+    "price": "价格",
+    "category": "分类",
+    "sales": "销量"
+  },
+  "messages": {
+    "welcome": "欢迎来到后台管理系统",
+    "logoutSuccess": "您已成功退出登录",
+    "loginSuccess": "您已成功登录",
+    "registerSuccess": "您的账户已成功创建"
+  },
+  "headersCount": {
+    "productList": "产品列表",
+    "orderList": "订单列表",
+    "userList": "用户列表",
+    "total": "总计",
+    "dataEntries": "数据条目"
+  }
+}

@@ -11,3 +11,10 @@ export const useCreateProduct = () => {
     onSuccess: () => qc.invalidateQueries({ queryKey: ['products'] }),
   });
 };
+
+export function useCategories() {
+  return useQuery({
+    queryKey: ['categories'],
+    queryFn: api.getCategories,
+  });
+}
